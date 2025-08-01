@@ -1,0 +1,96 @@
+/* Tailwind CSS Imports */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+@import "tailwindcss";
+
+
+
+
+.no-scrollbar::-webkit-scrollbar{
+  display: none;
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-up {
+  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+
+
+
+
+/* 🎨 Global Typography */
+* {
+  font-family: "Outfit", sans-serif;
+}
+
+/* ✨ Smooth receipt pulse animation */
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.94;
+    transform: scale(1.015);
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 1.8s ease-in-out infinite;
+}
+
+/* 📜 Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🌊 Subtle wave transition */
+.fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeWave 0.6s ease-out forwards;
+}
+
+@keyframes fadeWave {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🪄 Optional: Page background transition */
+body {
+  background-color: #f8f9fa;
+  transition: background-color 0.6s ease;
+}
+
+/* 🎯 Theme Customization */
+:root {
+  --color-primary: #4fbf8b;
+  --color-primary-dull: #44ae7c;
+}
+
+.slide-float-enter-active {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.slide-float-enter-from {
+  transform: translateY(20px);
+  opacity: 0;
+}
+.slide-float-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
