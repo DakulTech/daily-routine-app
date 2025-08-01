@@ -26,16 +26,21 @@ const router = createRouter({
 // 🔐 Clerk-aware navigation guard
 router.beforeEach(async (to, from, next) => {
   try {
-    await window.Clerk?.load?.(); // Ensure Clerk is ready
+    // Wait for Clerk to load if available
+    if (window.Clerk?.load) {
+      await window.Clerk.load();
+    }
+
     const isSignedIn = Boolean(window.Clerk?.user?.id);
 
     if (to.meta.requiresAuth && !isSignedIn) {
-      next('/today'); // Redirect unauthenticated users
+      console.warn('🔒 Redirecting unauthenticated user to /today');
+      next('/today');
     } else {
-      next(); // Allow navigation
+      next();
     }
   } catch (error) {
-    console.error('Navigation error:', error);
+    console.error('🚨 Navigation error:', error);
     next('/today');
   }
 });
