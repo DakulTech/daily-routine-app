@@ -65,7 +65,7 @@ const greetingEmoji = computed(() => {
   return hour < 12 ? '☀️' : hour < 18 ? '👋' : '🌙';
 });
 
-const themeIcon = computed(() => isDarkMode.value ? '🌞' : '🌙');
+const themeIcon = computed(() => (isDarkMode.value ? '🌞' : '🌙'));
 </script>
 
 <template>
