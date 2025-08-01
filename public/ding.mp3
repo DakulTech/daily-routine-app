@@ -1,0 +1,2 @@
+const alertSound = new Audio('/ding.mp3');
+alertSound.play();
